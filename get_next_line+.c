@@ -35,7 +35,7 @@ char	*get_next_line(int fd)
 	if (rv < 0)
 		return (NULL);
 	free(buffer);
-	return (ft_strip(s, BUFFER_SIZE));
+	return (ft_strip(s));
 }
 int	main(void)
 {
