@@ -6,16 +6,16 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 22:51:51 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/13 23:24:08 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/15 13:57:44 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
-
+#include <stdio.h>
 char	*ft_strchr(const char *str, int c)
 {
 	int		i;
 	char	*s;
-
+	
 	s = (char *)(str);
 	i = 0;
 	while (s[i] != '\0')
@@ -113,15 +113,19 @@ char	*ft_strdup(const char *s1)
 	return (cpy);
 }
 
-char	*ft_rstrip(char *line)
+char	*ft_strip(char **s, int buffSize)
 {
-	unsigned int	len;
-	char			*temp;
+	int len;
+	char *temp;
+	char *temp1;
+
 
 	len = 0;
-	while (line[len] != '\n')
+	while (s[0][len] != '\n')
 		len++;
-	temp = ft_substr(line, 0, len);
-	free(line);
+	temp = ft_substr(s[0], 0, len + 1);
+	temp1 = ft_substr(s[0], len + 1, buffSize - len);
+	free(s[0]);
+	s[0] = temp1;
 	return (temp);
 }
