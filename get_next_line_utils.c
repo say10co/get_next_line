@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 22:51:51 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/15 13:57:44 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/15 20:08:52 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -113,18 +113,37 @@ char	*ft_strdup(const char *s1)
 	return (cpy);
 }
 
-char	*ft_strip(char **s, int buffSize)
+int get_line(char *s)
+{	
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_strip(char **s, int buff_size, int rv)
 {
 	int len;
 	char *temp;
 	char *temp1;
 
-
+	if (s[0][0] =='\0')
+		return (NULL);
 	len = 0;
+	/*
+	if (rv != 0)
+		rv = 1;
+	*/
 	while (s[0][len] != '\n')
 		len++;
-	temp = ft_substr(s[0], 0, len + 1);
-	temp1 = ft_substr(s[0], len + 1, buffSize - len);
+	temp = ft_substr(s[0], 0, len + rv);
+	temp1 = ft_substr(s[0], len + 1, buff_size - len);
 	free(s[0]);
 	s[0] = temp1;
 	return (temp);
