@@ -43,7 +43,7 @@ int	main(void)
 	int		j;
 	char	*res;
 
-	fd = open("sample3.txt", O_RDONLY);
+	fd = open("sample2.txt", O_RDONLY);
 	if (fd < 0)
 		return (0);
 	j = 0;

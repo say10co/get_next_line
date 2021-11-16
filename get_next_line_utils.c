@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 22:51:51 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/16 00:51:02 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/16 01:06:22 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -140,7 +140,9 @@ char	*ft_strip(char **s)
 	len = 0;
 	while (s[0][len] != '\n' && s[0][len])
 		len++;
-	if (s[0][len] == '\0')
+	//if (s[0][len] == '\0')
+		//return (NULL)
+	if ((size_t)len >= ft_strlen(s[0]))
 		return (NULL);
 	temp = ft_substr(s[0], 0, len + 1);
 	temp1 = ft_substr(s[0], len + 1, ft_strlen(s[0]) - len);
