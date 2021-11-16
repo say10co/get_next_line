@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 22:51:51 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/16 22:36:17 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/16 22:59:43 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -128,7 +128,7 @@ int	get_line(char *s)
 	}
 	return (i);
 }
-
+/*
 char	*ft_strip(char **s, int rv, char *buff)
 {
 	int len;
@@ -161,3 +161,4 @@ char	*ft_strip(char **s, int rv, char *buff)
 		s[0] = temp1;
 	return (temp);
 }
+*/
