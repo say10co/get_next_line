@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 22:51:51 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/16 01:06:22 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/16 22:36:17 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *str, int c)
 {
 	int		i;
 	char	*s;
-	
+
 	s = (char *)(str);
 	i = 0;
 	while (s[i] != '\0')
@@ -115,9 +115,9 @@ char	*ft_strdup(const char *s1)
 	return (cpy);
 }
 
-int get_line(char *s)
+int	get_line(char *s)
 {	
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -129,24 +129,35 @@ int get_line(char *s)
 	return (i);
 }
 
-char	*ft_strip(char **s)
+char	*ft_strip(char **s, int rv, char *buff)
 {
 	int len;
 	char *temp;
 	char *temp1;
-	
-	if (!s[0]) 
+
+	free(buff);
+	buff = NULL;
+	if (!s[0] || rv < 0) 
 		return (NULL);
 	len = 0;
 	while (s[0][len] != '\n' && s[0][len])
 		len++;
-	//if (s[0][len] == '\0')
-		//return (NULL)
-	if ((size_t)len >= ft_strlen(s[0]))
-		return (NULL);
+	if (s[0][len] == '\0')
+	{
+		temp = ft_strdup(s[0]);
+		free(s[0]);
+		s[0] = NULL;
+		return (temp);
+	}
 	temp = ft_substr(s[0], 0, len + 1);
 	temp1 = ft_substr(s[0], len + 1, ft_strlen(s[0]) - len);
 	free(s[0]);
-	s[0] = temp1;
+	if (temp1[0] == '\0' )//&& ft_strlen(temp1) == 0)
+	{	
+		s[0] = NULL;
+		free(temp1);
+	}
+	else
+		s[0] = temp1;
 	return (temp);
 }
