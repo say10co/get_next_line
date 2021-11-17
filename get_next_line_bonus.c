@@ -6,19 +6,16 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:34:35 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/17 17:04:47 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/17 17:27:44 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <string.h>
 
 char	*ft_strip(char **s, int rv, char *buff, int fd)
 {
-	int len;
-	char *temp;
-	char *temp1;
+	int		len;
+	char	*temp;
+	char	*temp1;
 
 	free(buff);
 	buff = NULL;

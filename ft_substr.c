@@ -6,12 +6,11 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 09:57:21 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/16 21:54:08 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/17 17:24:22 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*substr;
