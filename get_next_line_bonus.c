@@ -6,10 +6,10 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:34:35 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/17 17:27:44 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/17 18:28:19 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strip(char **s, int rv, char *buff, int fd)
 {
@@ -39,7 +39,7 @@ char	*ft_strip(char **s, int rv, char *buff, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*s[4096];
+	static char	*s[OPEN_MAX];
 	char		*buffer;
 	char		*temp;
 	int			rv;

@@ -6,12 +6,12 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 20:25:53 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/17 17:25:55 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/17 18:26:07 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-char	*ft_strip(char **s, int rv, char *buff, int fd)
+char	*ft_strip(char **s, int rv, char *buff)
 {
 	int		len;
 	char	*temp;
@@ -19,27 +19,27 @@ char	*ft_strip(char **s, int rv, char *buff, int fd)
 
 	free(buff);
 	buff = NULL;
-	if (!s[fd] || rv < 0)
+	if (!(*s) || rv < 0)
 		return (NULL);
 	len = 0;
-	while (s[fd][len] != '\n' && s[fd][len])
+	while ((*s)[len] != '\n' && (*s)[len])
 		len++;
-	temp = ft_substr(s[fd], 0, len + 1);
-	temp1 = ft_substr(s[fd], len + 1, ft_strlen(s[fd]) - len);
-	free(s[fd]);
+	temp = ft_substr(*s, 0, len + 1);
+	temp1 = ft_substr(*s, len + 1, ft_strlen(*s) - len);
+	free(*s);
 	if (temp1[0] == '\0')
 	{
-		s[fd] = NULL;
+		*s = NULL;
 		free(temp1);
 	}
 	else
-		s[fd] = temp1;
+		*s = temp1;
 	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*s[4096];
+	static char	*s;
 	char		*buffer;
 	char		*temp;
 	int			rv;
@@ -51,19 +51,19 @@ char	*get_next_line(int fd)
 	while (rv > 0)
 	{
 		buffer[rv] = '\0';
-		if (!s[fd])
-			s[fd] = ft_strdup(buffer);
+		if (!s)
+			s = ft_strdup(buffer);
 		else if (buffer)
 		{
-			temp = ft_strjoin(s[fd], buffer);
-			free(s[fd]);
-			s[fd] = temp;
+			temp = ft_strjoin(s, buffer);
+			free(s);
+			s = temp;
 		}
-		if (ft_strchr(s[fd], '\n'))
+		if (ft_strchr(s, '\n'))
 			break ;
 		rv = read(fd, buffer, BUFFER_SIZE);
 	}
-	return (ft_strip(s, rv, buffer, fd));
+	return (ft_strip(&s, rv, buffer));
 }
 /*
    int	main(int ac, char**arv)

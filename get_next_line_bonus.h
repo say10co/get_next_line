@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 20:29:09 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/17 17:29:19 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/17 18:26:41 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+#include <limits.h>
 
 char		*ft_strchr(const char *str, int c);
 char		*ft_strjoin(char const *s1, char const *s2);
