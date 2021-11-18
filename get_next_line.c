@@ -6,7 +6,7 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 20:25:53 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/17 18:26:07 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/18 12:59:54 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -66,25 +66,28 @@ char	*get_next_line(int fd)
 	return (ft_strip(&s, rv, buffer));
 }
 /*
-   int	main(int ac, char**arv)
-   {
-   int		fd;
-   int		j;
-   char	*res;
+#include <fcntl.h>
+#include <stdio.h>
 
-   ac--;
-   fd = open(arv[1], O_RDONLY);
-   if (fd < 0)
-   return (0);
-   j = 0;
-   res = get_next_line(fd);
-   while (j < 3)
-   {
-   printf("<->%s", res);
-   j++;
-   res = get_next_line(fd);
-   }
-//printf("break? : %s", res);
-return (0);
+int	main(int ac, char**arv)
+{
+	int		fd;
+	int		j;
+	char	*res;
+
+	ac--;
+	fd = open(arv[1], O_RDONLY);
+	if (fd < 0)
+		return (0);
+	j = 0;
+	res = get_next_line(fd);
+	while (j < 114)
+	{
+		printf("->:%s", res);
+		j++;
+		res = get_next_line(fd);
+	}
+	//printf("break? : %s", res);
+	return (0);
 }
 */
