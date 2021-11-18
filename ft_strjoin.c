@@ -6,10 +6,9 @@
 /*   By: adriouic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 10:10:19 by adriouic          #+#    #+#             */
-/*   Updated: 2021/11/13 20:11:21 by adriouic         ###   ########.fr       */
+/*   Updated: 2021/11/18 17:22:52 by adriouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
